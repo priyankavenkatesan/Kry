@@ -5,6 +5,8 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.mockito.Mockito.times;
 
+import java.util.List;
+
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -42,19 +44,12 @@ public class KryServiceImplTest {
 
 	@Test
 	void testFetchServices() {
-		String result = kryServiceImpl.fetchServices();
+		List<Kry> result = kryServiceImpl.fetchServices();
 		assertNotNull(result);
 		Mockito.verify(kryRepository, times(1)).findAll();
 
 	}
 
-	@Test
-	void testNoServices() {
-		String result = kryServiceImpl.fetchServices();
-		assertThat(result).isEqualTo("No services available currently");
-		Mockito.verify(kryRepository, times(1)).findAll();
-
-	}
 
 	@Test
 	void testCheckConnection() {

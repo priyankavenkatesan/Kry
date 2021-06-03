@@ -89,19 +89,21 @@ public class KryServiceImpl implements KryService {
 	 * Method to fetch all services
 	 */
 	@Override
-	public String fetchServices() {
+	public List<Kry> fetchServices() {
 		List<Kry> services = kryRepository.findAll();
-		Map<String, String> names = new HashMap<>();
-		if (services.size() > 0) {
-			for (Kry service : services) {
-				names.put(service.getServiceName(), service.getActive());
-			}
-		} else {
-			return "No services available currently";
+//		Map<String, String> names = new HashMap<>();
+//		if (services.size() > 0) {
+//			for (Kry service : services) {
+//				names.put(service.getServiceName(), service.getActive());
+//			}
+//		} else {
+//			return "No services available currently";
+//		}
+//		return "List of Services and Status:\n" + names.toString() + "\nLast modified on: "
+//				+ services.get(services.size() - 1).getUpdatedTime() + "\nLast Service added on: "
+//				+ services.get(services.size() - 1).getCreatedTime();
+//	}
+		return services;
 		}
-		return "List of Services and Status:\n" + names.toString() + "\nLast modified on: "
-				+ services.get(services.size() - 1).getUpdatedTime() + "\nLast Service added on: "
-				+ services.get(services.size() - 1).getCreatedTime();
-	}
 
 }

@@ -1,5 +1,9 @@
 package com.kry.service;
 
+import java.util.List;
+
+import com.kry.model.Kry;
+
 /**
  * Service interface
  * 
@@ -14,6 +18,6 @@ public interface KryService {
 
 	public String removeService(String name);
 
-	public String fetchServices();
+	public List<Kry> fetchServices();
 
 }
